@@ -13,7 +13,7 @@ class BD {
 
     public static function conexao() {
 
-        $conexao = new mysqli('localhost', 'root', 'vncs2012', 'pizza');
+        $conexao = new mysqli('localhost', 'root', '@ipe789@', 'pizza');
         if (mysqli_connect_errno()) {
             printf("Connect failed: %s\n", mysqli_connect_error());
             exit();

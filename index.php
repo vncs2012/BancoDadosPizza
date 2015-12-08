@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <html>
     <head>
         <title>Trabalho Final</title>
@@ -11,6 +13,7 @@
         <div class="container-fluid">
 
             <?php
+            include 'restrito.php';
             require 'BD.php';
             print'<div class="col-lg-4" >';
             include 'menu.php';

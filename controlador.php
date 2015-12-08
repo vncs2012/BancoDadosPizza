@@ -14,4 +14,6 @@ if ($_REQUEST['p'] == 'cli') {
     include 'acao/acaoBebida.php';
 }else if ($_REQUEST['p'] == 'adc') {
     include 'acao/acaoAdicionais.php';
+}else if ($_REQUEST['p'] == 'ped') {
+    include 'acao/acaoPedido.php';
 }

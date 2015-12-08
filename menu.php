@@ -6,6 +6,7 @@
                 <!--<div class="navbar-collapse collapse navbar-responsive-collapse">-->
                 <ul class="nav nav-pills nav-stacked">
                     <li class="active"><a href="?p=hom">home</a></li>
+                    <li><a href="?p=ped&acao=listar">Pedido</a></li>
                     <li><a href="?p=fun&acao=listar">Funcionario</a></li>
                     <li><a href="?p=cli&acao=listar">Clientes</a></li>
                     <li><a href="?p=ent&acao=listar">Entregador</a></li>
