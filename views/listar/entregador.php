@@ -13,7 +13,7 @@
             <tbody>
             <td><?php print $obj->no_entregador; ?></td>
             <th>
-                <a  class="btn btn-info" href="?p=ent&acao=alterarForm&id=<?php print $obj->cd_entragador; ?>">Editar</a>
+                <!--<a  class="btn btn-info" href="?p=ent&acao=alterarForm&id=<?php print $obj->cd_entragador; ?>">Editar</a>-->
                 <a  class="btn btn-warning" href="?p=ent&acao=excluir&id=<?php print $obj->cd_entragador; ?>">Excluir</a>
             </th>
             </tbody>

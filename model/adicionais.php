@@ -19,7 +19,6 @@ class adicionais extends BD {
                       values('" . implode("','", $dados) . "')";
         if ($this->conexao()->query($query)) {
             print "<h1>Salvo</h1>";
-            print $this->conexao()->insert_id;
         }
     }
 

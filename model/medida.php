@@ -19,8 +19,6 @@ class medida extends BD {
                       values('" . implode("','", $dados) . "');";
         if (mysqli_query($this->conexao(), $query)) {
             print "<h1>Salvo</h1><br />";
-            $teste = mysqli_insert_id($this->conexao());
-            print"sa->" . $teste;
         }
     }
 
