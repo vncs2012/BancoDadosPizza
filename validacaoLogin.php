@@ -3,7 +3,7 @@ session_start();
 ?>
 <meta charset="utf-8" />
 <?php
-$conexao = new mysqli('localhost', 'root', '@ipe789@', 'pizza');
+$conexao = new mysqli('localhost', 'root', 'vncs2012', 'pizza');
 if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());
     exit();

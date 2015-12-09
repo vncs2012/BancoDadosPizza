@@ -1,6 +1,6 @@
 <h1>Listagem Pizza</h1>
 <hr />
-<a href="?p=piz&acao=formIncluir"><button class="btn btn-default"  type="button" style="margin-left: 85%">Novo Registro<div class="ripple-wrapper"></div></button></a>
+<a href="?p=piz&acao=formIncluir"><button class="btn btn-default"  type="button" style="margin-left: 85%">Nova Pizza<div class="ripple-wrapper"></div></button></a>
 <div class="portlet-body">  
     <table class="table table-hover">
         <thead>
@@ -18,8 +18,8 @@
             <td><?php print $obj->vl_pizza; ?></td>
             <td><?php print $obj->no_tamanho; ?></td>
             <th>
-                <a  href="?p=piz&acao=alterarForm&id=<?php print $obj->cd_pizza; ?>"><span class="glyphicon glyphicon-pencil" ></span></a>
-                <a href="?p=piz&acao=excluir&id=<?php print $obj->cd_pizza; ?>"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+                <a  class="btn btn-info" href="?p=piz&acao=alterarForm&id=<?php print $obj->cd_pizza; ?>">Editar</a>
+                <a class="btn btn-warning" href="?p=piz&acao=excluir&id=<?php print $obj->cd_pizza; ?>"><span>Excluir</span></a>
             </th>
             </tbody>
             <?php

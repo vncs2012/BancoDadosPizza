@@ -1,7 +1,7 @@
 
-<h1>Cadastro de Cliente</h1>
+<h1>Listagem de Pedidos</h1>
 <hr />
-<a href="?p=ped&acao=formIncluir"><button class="btn btn-default"  type="button" style="margin-left: 85%">Novo Registro<div class="ripple-wrapper"></div></button></a>
+<a href="?p=ped&acao=formIncluir"><button class="btn btn-default"  type="button" style="margin-left: 85%">Novo Pedido<div class="ripple-wrapper"></div></button></a>
 <div class="portlet-body">  
     <table class="table table-hover">
         <thead>

@@ -14,7 +14,7 @@
 class pedido extends BD {
 
     function inserir() {
-        $conexao = new mysqli('localhost', 'root', '@ipe789@', 'pizza');
+        $conexao = new mysqli('localhost', 'root', 'vncs2012', 'pizza');
         $conexao->begin_transaction();
         $query = "INSERT INTO `tb_pedido`(`cd_funcionario`, `cd_cliente`, `bo_pedido`, `dt_pedido`)
                       values('" . implode("','", $this->dados()) . "')";

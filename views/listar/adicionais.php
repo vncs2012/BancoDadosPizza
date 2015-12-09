@@ -16,8 +16,8 @@
             <td><?php print $obj->no_adicional; ?></td>
             <td><?php print $obj->vl_adicional; ?></td>
             <th>
-                <a  href="?p=adc&acao=alterarForm&id=<?php print $obj->cd_adicionais; ?>"><span class="glyphicon glyphicon-pencil" ></span></a>
-                <a href="?p=adc&acao=excluir&id=<?php print $obj->cd_adicionais; ?>"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+                <a  class="btn btn-info" href="?p=adc&acao=alterarForm&id=<?php print $obj->cd_adicionais; ?>">Editar</a>
+                <a  class="btn btn-warning" href="?p=adc&acao=excluir&id=<?php print $obj->cd_adicionais; ?>">Excluir</a>
             </th>
             </tbody>
             <?php

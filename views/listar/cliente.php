@@ -20,8 +20,8 @@
             <td><?php print $obj->cpf; ?></td>
             <td><?php print $obj->ds_endereco; ?></td>
             <th>
-                <a  href="?p=cli&acao=alterarForm&id=<?php print $obj->cd_cliente; ?>"><span class="glyphicon glyphicon-pencil" ></span></a>
-                <a href="?p=cli&acao=excluir&id=<?php print $obj->cd_cliente; ?>"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+                <a  class="btn btn-info" href="?p=cli&acao=alterarForm&id=<?php print $obj->cd_cliente; ?>">Editar</a>
+                <a  class="btn btn-warning" href="?p=cli&acao=excluir&id=<?php print $obj->cd_cliente; ?>">Excluir</a>
             </th>
             </tbody>
             <?php
