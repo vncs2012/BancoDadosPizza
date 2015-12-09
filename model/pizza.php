@@ -41,6 +41,8 @@ class pizza extends BD {
         return $retorno;
     }
 
+ 
+
     function deletar() {
         $query = "DELETE FROM tb_pizza
                 WHERE cd_pizza =" . $_REQUEST['id'];

@@ -14,7 +14,7 @@
 class pedido extends BD {
 
     function inserir() {
-        $conexao = new mysqli('localhost', 'root', 'vncs2012', 'pizza');
+        $conexao = new mysqli('localhost', 'root', '@ipe789@', 'pizza');
         $conexao->begin_transaction();
         $query = "INSERT INTO `tb_pedido`(`cd_funcionario`, `cd_cliente`, `bo_pedido`, `dt_pedido`)
                       values('" . implode("','", $this->dados()) . "')";
@@ -23,28 +23,34 @@ class pedido extends BD {
             $cd_pedido = $conexao->insert_id;
 
 //           pizza
-            $piz = $_REQUEST['pizza'];
-            foreach ($piz as $value) {
-                $pizza['cd_pedido'] = $cd_pedido;
-                $pizza['cd_pizza'] = $value;
-                $query = "INSERT INTO `tb_pedido_pizza`(`cd_pedido`, `cd_pizza`)
+            if (isset($_REQUEST['pizza'])) {
+                $piz = $_REQUEST['pizza'];
+                foreach ($piz as $value) {
+                    $pizza['cd_pedido'] = $cd_pedido;
+                    $pizza['cd_pizza'] = $value;
+                    $query = "INSERT INTO `tb_pedido_pizza`(`cd_pedido`, `cd_pizza`)
                       values('" . implode("','", $pizza) . "')";
-                $res = $conexao->query($query);
+                    $res = $conexao->query($query);
+                }
             }
 //            fim pizza
 //            Adicional
             if ($res == true) {
-                $adcional = $_REQUEST['adc'];
-                foreach ($adcional as $value) {
-                    $adc['cd_pedido'] = $cd_pedido;
-                    $adc['cd_adicionais'] = $value;
-                    $query = "INSERT INTO `tb_pedido_adicionais`(`cd_pedido`, `cd_adicionais`)
+                if (isset($_REQUEST['adc'])) {
+                    $adcional = $_REQUEST['adc'];
+                    foreach ($adcional as $value) {
+                        $adc['cd_pedido'] = $cd_pedido;
+                        $adc['cd_adicionais'] = $value;
+                        $query = "INSERT INTO `tb_pedido_adicionais`(`cd_pedido`, `cd_adicionais`)
                       values('" . implode("','", $adc) . "')";
-                    if ($conexao->query($query)) {
-                        $bo_adc = true;
-                    } else {
-                        $bo_adc = false;
+                        if ($conexao->query($query)) {
+                            $bo_adc = true;
+                        } else {
+                            $bo_adc = false;
+                        }
                     }
+                } else {
+                    $bo_adc = true;
                 }
             } else {
                 print "Erro Ao Salvar Pizza";
@@ -53,7 +59,6 @@ class pedido extends BD {
 //            fim adicional
 //            Bebidas
             if ($bo_adc == true) {
-
                 $bebida = $_REQUEST['bebida'];
                 foreach ($bebida as $value) {
                     $be['cd_pedido'] = $cd_pedido;
@@ -71,6 +76,7 @@ class pedido extends BD {
             if ($bo_bebida == true) {
                 $conexao->commit();
                 print "Salvo Com sucesso";
+                return $cd_pedido;
             } else {
                 print "Erro Ao Salvar Bebidas";
                 return;
@@ -101,6 +107,55 @@ class pedido extends BD {
 
         $query = "select {$condicao} from {$table}" . implode("", $join) . implode("", $where);
         $retorno = $this->conexao()->query($query);
+        return $retorno;
+    }
+
+    function listarPizza($cd = NULL) {
+        if (empty($cd)) {
+            $cd = $_REQUEST['id'];
+        }
+        $query = "SELECT * FROM tb_pedido_pizza 
+              join tb_pizza p using(cd_pizza) 
+              join tb_pizza_medida on(cd_tamanho = p.tb_pizza_medida_cd_tamanho) where cd_pedido = " . $cd;
+        $retorno = $this->conexao()->query($query);
+//        $arr = $retorno->fetch_fields();
+        return $retorno;
+    }
+
+    function listarAdc($cd = NULL) {
+        if (empty($cd)) {
+            $cd = $_REQUEST['id'];
+        }
+        $query = "SELECT * FROM  tb_pedido_adicionais
+			join tb_adicionais using(cd_adicionais)
+          where cd_pedido =" . $cd;
+        $retorno = $this->conexao()->query($query);
+//        $arr = $retorno->fetch_fields();
+        return $retorno;
+    }
+
+    function listarBebidas($cd = NULL) {
+        if (empty($cd)) {
+            $cd = $_REQUEST['id'];
+        }
+        $query = "SELECT * FROM  tb_pedido_adicionais p
+			join tb_adicionais a using(cd_adicionais)
+          where p.cd_pedido =" . $cd;
+        $retorno = $this->conexao()->query($query);
+//        $arr = $retorno->fetch_fields();
+        return $retorno;
+    }
+
+    function listarPedido($cd = NULL) {
+        if (empty($cd)) {
+            $cd = $_REQUEST['id'];
+        }
+        $query = "SELECT cd_pedido,no_cliente,dt_pedido,no_funcionario,ds_endereco FROM tb_pedido 
+		join tb_cliente using(cd_cliente)
+        join tb_funcionario using (cd_funcionario)
+        where cd_pedido =" . $cd;
+        $retorno = $this->conexao()->query($query);
+//        $arr = $retorno->fetch_fields();
         return $retorno;
     }
 

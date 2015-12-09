@@ -19,8 +19,11 @@ switch ($acao) {
         include 'views/incluir/pedido.php';
         break;
     case 'incluir':
-        $oquefazer->inserir();
-        $lista = $oquefazer->listar();
+        $cd_pedido = $oquefazer->inserir();
+        $pizza = $oquefazer->listarPizza($cd_pedido);
+        $adc = $oquefazer->listarAdc($cd_pedido);
+        $bebidas = $oquefazer->listarBebidas($cd_pedido);
+        $pedido = $oquefazer->listarPedido($cd_pedido);
         include 'views/relatorio/pedido.php';
         break;
     case 'alterar':
@@ -29,9 +32,11 @@ switch ($acao) {
         include 'views/listar/pedido.php';
         break;
     case 'alterarForm':
-        $medida = $oquefazer->seclect();
-        $listarUm = $oquefazer->listarUM();
-        include 'views/alterar/pedido.php';
+        $pizza = $oquefazer->listarPizza();
+        $adc = $oquefazer->listarAdc();
+        $bebidas = $oquefazer->listarBebidas();
+        $pedido = $oquefazer->listarPedido();
+        include 'views/relatorio/pedido.php';
         break;
     case 'assocFrom':
         $assoc = $oquefazer->seclect("tb_entragador", "*");

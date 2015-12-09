@@ -10,10 +10,12 @@ if ($_REQUEST['p'] == 'cli') {
     include 'acao/acaoMedida.php';
 } else if ($_REQUEST['p'] == 'piz') {
     include 'acao/acaoPizza.php';
-}else if ($_REQUEST['p'] == 'beb') {
+} else if ($_REQUEST['p'] == 'beb') {
     include 'acao/acaoBebida.php';
-}else if ($_REQUEST['p'] == 'adc') {
+} else if ($_REQUEST['p'] == 'adc') {
     include 'acao/acaoAdicionais.php';
-}else if ($_REQUEST['p'] == 'ped') {
+} else if ($_REQUEST['p'] == 'ped') {
     include 'acao/acaoPedido.php';
+} else {
+    include 'home.php';
 }
