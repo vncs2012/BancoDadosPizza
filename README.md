@@ -1,5 +1,5 @@
 # BancoDadosPizza
-Trabalho faculdade Conculsão Curso Bando de Dados II
+Trabalho faculdade Conculsão Curso Banco de Dados II
 
 trocar login e senha do banco nos locais:<br />
 <strong>BD.php</strong><br />
